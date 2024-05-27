@@ -10,7 +10,7 @@
 /web-app/coverage
 
 # next.js
-/web-app/.next/
+/web-app/frontend/.next/
 /web-app/out/
 
 # production
