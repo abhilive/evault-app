@@ -1,0 +1,23 @@
+{
+  "name": "hardhat",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "besu": "besu --network=dev --miner-enabled --miner-coinbase=0xfe3b557e8fb62b89f4916b721be55ceb828dbd73 --rpc-http-cors-origins='all' --host-allowlist='*' --rpc-ws-enabled --rpc-http-enabled --data-path=/tmp/tmpDatdir"
+  },
+  "keywords": [
+    "hardhat",
+    "solidity",
+    "besu"
+  ],
+  "author": "Abhishek Srivastava <cs.abhlive@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^5.0.0",
+    "hardhat": "^2.22.3"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5"
+  }
+}
