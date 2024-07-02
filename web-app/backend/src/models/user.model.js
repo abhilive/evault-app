@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
       email: {type: STRING, unique: true, allowNull: false},
       phone: {type:TEXT, allowNull: false},
       password: {type:STRING, allowNull: false},
-      public_address: {type: TEXT},   
+      public_address: {type: TEXT, unique: true, allowNull: false },   
   });
   
   User.prototype.encryptPassword = async password => {

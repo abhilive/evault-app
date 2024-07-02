@@ -21,20 +21,20 @@ module.exports = (sequelize, DataTypes) => {
     });
 
 	// Roles.sync({ alter: true }).then(() => {
-	// 	// const role = Roles.build({role_name: 'ADMIN'});
-	// 	// role.save();
-	// 	// const role1 = Roles.build({role_name: 'JUDGE'});
-	// 	// role1.save();
-	// 	// const role2 = Roles.build({role_name: 'LAWYER'});
-	// 	// role2.save();
-	// 	// const role3 = Roles.build({role_name: 'CLIENT'});
-	// 	// return role3.save();
-	// 	return Roles.findAll({ attribute: ['role_name'] });
+	// 	const role = Roles.build({role_name: 'ADMIN'});
+	// 	role.save();
+	// 	const role1 = Roles.build({role_name: 'JUDGE'});
+	// 	role1.save();
+	// 	const role2 = Roles.build({role_name: 'LAWYER'});
+	// 	role2.save();
+	// 	const role3 = Roles.build({role_name: 'CLIENT'});
+	// 	return role3.save();
+	// 	// return Roles.findAll({ attribute: ['role_name'] });
 	// }).then((data) => {
-	// 	data.array.forEach(element => {
-	// 		console.log(element.toJSON());
-	// 	});
-	// 	// console.log("Role added to database")
+	// 	// data.array.forEach(element => {
+	// 	// 	console.log(element.toJSON());
+	// 	// });
+	// 	console.log("Role added to database")
 	// }).catch((error) => {
 	// 	console.log("Error in Roles model.", error);
 	// });

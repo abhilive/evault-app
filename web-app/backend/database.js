@@ -19,13 +19,13 @@ applyExtraSetup(sequelize);
 
 // sequelize.sync({ force: true })
 //   .then(() => {
-//     console.log(`Database & tables created!`)
-//})
+//     console.log('Database & tables created!');
+//   });
 
 module.exports = {
   User,
   Roles
-}
+};
 
 // const modelDefiners = [
 //   require('./src/models/roles.model'),

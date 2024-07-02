@@ -1,9 +1,7 @@
-import { useState } from 'react';
-import { getWeb3 } from '../ethereum/utils';
+import verifyToken from '../getInitialProps/verifyToken';
 
 import Layout from '../components/Layout';
 import Documents from '../components/Documents';
-
 
 const DocumentsPage = () => {
   return (
@@ -12,4 +10,9 @@ const DocumentsPage = () => {
     </Layout>
   );
 };
+
+DocumentsPage.getInitialProps = function (ctx) {
+  verifyToken(ctx);
+};
+
 export default DocumentsPage;

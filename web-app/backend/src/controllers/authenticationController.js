@@ -24,8 +24,8 @@ Authentication.login = (req, res, next) => {
 
 Authentication.register = async (req, res, next) => {
   try {
-    const { role, uname, gender, email, phone, password } = req.body;
-    if (!role || !uname || !gender || !email || !phone || !password) {
+    const { role, uname, gender, email, phone, password, account } = req.body;
+    if (!role || !uname || !gender || !email || !phone || !password || !account) {
       return res.status(500).json({
         message: 'All fields are required',
       });
@@ -34,6 +34,11 @@ Authentication.register = async (req, res, next) => {
     if (user) {
       return res.status(422).json({ message: 'Email is already in use' });
     }
+
+    const userfoundByPublicAddress = await User.findOne({ where: { public_address: account } });
+    if (userfoundByPublicAddress) {
+      return res.status(422).json({ message: 'Account is already in use' });
+    }
     
     const newUser = new User({
       name: uname,
@@ -41,7 +46,7 @@ Authentication.register = async (req, res, next) => {
       email,
       phone,
       password,
-      public_address: null,
+      public_address: account,
       roleId: role
     });
     newUser.password = await newUser.encryptPassword(password);

@@ -2,11 +2,11 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import actions from '../../../redux/actions';
 import useMetamask from '../../../hooks/useMetamask';
+import { Message, MessageHeader, Button } from 'semantic-ui-react';
 
 const RegisterForm = () => {
   const dispatch = useDispatch();
-  const { account, error, connectMetaMask, disconnectMetaMask } = useMetamask();
-  
+  const { account, connectMetaMask, disconnectMetaMask } = useMetamask();  
 
   // const [show, setShow] = useState(false);
   // const toggle = () => {
@@ -19,17 +19,17 @@ const RegisterForm = () => {
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
   const [password, setPassword] = useState('');
-
+ 
   const handleSubmit = e => {
     e.preventDefault();
-    dispatch(actions.authenticate({ role, uname, gender, email, phone, password }, 'register'));
+    dispatch(actions.authenticate({ role, uname, gender, email, phone, password, account }, 'register'));
   };
 
   return (
     <>
       <div className="app">
         <div className="app-header">
-          <h1>React dApp authentication with React, We3.js and Metamask</h1>
+          <h1>Welcome! Register here.</h1>
         </div>
         <div className="app-wrapper">
           {/* <div>
@@ -39,12 +39,21 @@ const RegisterForm = () => {
             }
           </div> */}
           {!account && (
+            <>
+              <Message info>
+                <MessageHeader>Website is not connected to Ethereum</MessageHeader>
+                <p>You need to connect your wallet first</p>
+              </Message>
+              <Button primary onClick={() => connectMetaMask()}>Connect Wallet</Button>
+            </>
+          )}
+          {/* {!account && (
             <div>
               <button className="app-button__login" onClick={connectMetaMask}>
               Login
               </button>
             </div>
-          )}
+          )} */}
         </div>
         {account && (
           <div className="app-wrapper">
