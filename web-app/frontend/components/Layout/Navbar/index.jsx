@@ -1,4 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux';
+import { MenuItem, Menu } from 'semantic-ui-react';
 
 import Link from 'next/link';
 import NavLink from './NavLink/';
@@ -10,14 +11,14 @@ const Navbar = () => {
   const isAuthenticated = useSelector(state => !!state.authentication.token);
   return (
     <div className="tabs is-centered">
-      <ul>
-        <Link href="/">
+      <Menu.Menu>
+        <Menu.Item as={Link} to="/">
           Home
-        </Link>
-        <NavLink href="/register" privateRoute={false}>
+        </Menu.Item>
+        <NavLink position="right" href="/register" privateRoute={false}>
           Register
         </NavLink>
-        <NavLink href="/login" privateRoute={false}>
+        <NavLink position="right" href="/login" privateRoute={false}>
           Login
         </NavLink>
         <NavLink href="/user" privateRoute={true}>
@@ -27,11 +28,11 @@ const Navbar = () => {
           Documents
         </NavLink>
         {isAuthenticated && (
-          <li onClick={() => dispatch(actions.deauthenticate())}>
-            <a>Log Out</a>
-          </li>
+          <MenuItem onClick={() => dispatch(actions.deauthenticate())}>
+            Log Out
+          </MenuItem>
         )}
-      </ul>
+      </Menu>
     </div>
   );
 };

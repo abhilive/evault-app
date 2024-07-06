@@ -1,15 +1,16 @@
 import { useSelector } from 'react-redux';
 
 import Link from 'next/link';
+import { MenuItem } from 'semantic-ui-react';
 
-const NavLink = ({ href, privateRoute, children }) => {
+const NavLink = ({ position, href, privateRoute, children }) => {
   const isAuthenticated = useSelector(state => !!state.authentication.token);
   return (
     <>
       {privateRoute === isAuthenticated && (
-        <Link href={href}>
+        <MenuItem position="right" href={href}>
           {children}
-        </Link>
+        </MenuItem>
       )}
     </>
   );

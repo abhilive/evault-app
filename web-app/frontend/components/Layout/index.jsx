@@ -6,7 +6,7 @@ const Layout = ({ children, title }) => {
   useDocumentTitle(title);
 
   return (
-    <div>
+    <div className="ui container">
       <Navbar />
       <ErrorMessage />
       <div className="has-text-centered">{children}</div>
